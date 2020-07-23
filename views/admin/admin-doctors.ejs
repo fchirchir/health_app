@@ -6,10 +6,10 @@
     <title>teleHealth</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #e6ecfe;">
+    <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid"><a class="navbar-brand" href="/admin">teleHealth | Admin</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="/admin">Home</a></li>
@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Doctors</h1>
+                 <h1>Doctors</h1>
                 </div>
                 <div class="col"><a id="create-doctor-link" href="/admin/admin-create-doctor" class="btn btn-primary">Create Doctor</a></div>
             </div>
@@ -29,27 +29,20 @@
     </div>
     <div class="row">
         <div class="col">
+            <% doctors.forEach(function(doctor){ %>
             <div class="container">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Dr Zuri</h4>
-                        <h6 class="text-muted card-subtitle mb-2">Nairobi</h6><a class="card-link" href="/admin/admin-doctor-details/123">View</a><a class="card-link" href="#">Delete</a></div>
+                        <h4 class="card-title">Dr. <%= doctor.names%></h4>
+                        <h6 class="text-muted card-subtitle mb-2"><%= doctor.license_number%></h6>
+                        <h6 class="text-muted card-subtitle mb-2"><%= doctor.speciality%></h6>
+                        <h6 class="text-muted card-subtitle mb-2"><%= doctor.hospital%></h6>
+                        <a class="card-link" href="/admin/admin-doctor-details/<%=doctor._id%>">View</a>
+                        <a class="card-link" href="#">Delete</a>
+                    </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Dr Jonny Govish</h4>
-                        <h6 class="text-muted card-subtitle mb-2">Mombasa</h6><a class="card-link" href="/admin/admin-doctor-details/123">View</a><a class="card-link" href="#">Delete</a></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Dr Sunshine&nbsp;</h4>
-                        <h6 class="text-muted card-subtitle mb-2">Space</h6><a class="card-link" href="/admin/admin-doctor-details/123">View</a><a class="card-link" href="#">Delete</a></div>
-                </div>
-            </div>
+            <% }); %> 
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

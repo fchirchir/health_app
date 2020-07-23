@@ -1,13 +1,14 @@
 //Imports
 const express = require('express');
 const mongoose  = require('mongoose');
+const bodyParser= require('body-parser');
 //Routes
 let adminRouter = require('./routes/admin');
 let patientRouter = require('./routes/patient');
 let doctorRouter = require('./routes/doctor');
 // Initialize Express
 const app  = express();
-
+app.use(bodyParser.urlencoded({ extended: true }));
 //DB Creds
 const options = {
   useNewUrlParser: true,
