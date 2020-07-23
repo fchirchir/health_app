@@ -40,6 +40,8 @@ app.use(express.static('public'));
 app.use(express.json());
 // App Routing
 app.use('/admin', adminRouter);
+// Doctor Routing
+app.use('/doctor', doctorRouter);
 //Server PORT
 const PORT = process.env.PORT || 5000;
 //Start Server
