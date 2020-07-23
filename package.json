@@ -1,0 +1,26 @@
+{
+  "name": "health_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fchirchir/health_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fchirchir/health_app/issues"
+  },
+  "homepage": "https://github.com/fchirchir/health_app#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25"
+  }
+}
