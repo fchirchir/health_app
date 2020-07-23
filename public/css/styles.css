@@ -1,0 +1,36 @@
+label{
+	margin-top: 0.5%;
+}
+
+h1{
+	font-size:25px !important;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}
+
+input,.btn{
+	border-radius:0px !important;
+}
+
+input{
+	outline: none !important;
+}
+
+.navbar-expand-md{
+	background-color: #e6ecfe !important;
+}

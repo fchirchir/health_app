@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>teleHealth</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #e6ecfe;">
+    <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid"><a class="navbar-brand" href="/admin">teleHealth | Admin</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation"></li>
@@ -34,15 +33,26 @@
     <div class="row">
         <div class="col">
             <div class="container">
-                <form><label>Names</label><input class="form-control" type="text" id="doctor-names" name="doctor-names"><label>Hospital</label><input class="form-control" type="text" id="doctor-hospital" name="doctor-hospital"><label>License Number</label>
-                    <input
-                        class="form-control" type="text" id="doctor-license-number" name="doctor-license-number"><label>Specialty</label><input class="form-control" type="text" id="doctor-specialty" name="doctor-specialty">
-                        <hr><button class="btn btn-primary" type="button">SAVE DETAILS</button></form>
+                <form action="/admin/admin-doctor/register" method="POST">
+                    <label>Names</label>
+                    <input class="form-control" type="text" id="doctor-names" name="names">
+                    <label>License Number</label>
+                    <input class="form-control" type="text" id="doctor-license-number" name="license_number">
+                    <label>Hospital</label>
+                    <input class="form-control" type="text" id="doctor-hospital" name="hospital">
+                    <label>Speciality</label>
+                    <input class="form-control" type="text" id="doctor-speciality" name="speciality">
+                    <label>Email Address</label>
+                    <input class="form-control" type="email" id="doctor-email" name="email">
+                    <label>Password</label>
+                    <input class="form-control" type="password" id="doctor-password" name="password">
+                    <hr>
+                    <button class="btn btn-primary" type="submit">Save Details</button>
+                </form>
             </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

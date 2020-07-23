@@ -7,6 +7,8 @@ const Patient = require('../models/patients');
 
 const rounds  = 12;
 
+const { body,validationResult,sanitizeBody } = require('express-validator');
+
 /******************
   
   ADMIN DASHBOARD
@@ -24,7 +26,15 @@ router.get('/',(req,res)=>{
 ****************************/
 
 router.get('/admin-doctors',(req,res)=>{
-  res.render('admin/admin-doctors');
+
+  Doctor.find({}, (error, doctors)=>{
+     if(error){
+        console.log(error);
+     }else{
+        res.render('admin/admin-doctors', { doctors:doctors});
+     }
+   }).sort({'createdAt': -1});
+
 });
 
 router.get('/admin-create-doctor',(req,res)=>{
@@ -32,6 +42,7 @@ router.get('/admin-create-doctor',(req,res)=>{
 });
 
 router.post('/admin-doctor/register',(req,res)=>{
+  
   bcrypt.hash(req.body.password, rounds, function(err,hash) {
     if(err){
       console.log(err);
@@ -44,6 +55,7 @@ router.post('/admin-doctor/register',(req,res)=>{
         email: req.body.email,
         password: hash
       }).save();
+      res.redirect('/admin/admin-doctors');
     }
   });
 
