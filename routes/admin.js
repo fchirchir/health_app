@@ -28,12 +28,12 @@ router.get('/',(req,res)=>{
 router.get('/admin-doctors',(req,res)=>{
 
   Doctor.find({}, (error, doctors)=>{
-       if(error){
-          console.log(error);
-       }else{
-          res.render('admin/admin-doctors', { doctors:doctors});
-       }
-   });
+     if(error){
+        console.log(error);
+     }else{
+        res.render('admin/admin-doctors', { doctors:doctors});
+     }
+   }).sort({'createdAt': -1});
 
 });
 
@@ -42,6 +42,7 @@ router.get('/admin-create-doctor',(req,res)=>{
 });
 
 router.post('/admin-doctor/register',(req,res)=>{
+  
   bcrypt.hash(req.body.password, rounds, function(err,hash) {
     if(err){
       console.log(err);
