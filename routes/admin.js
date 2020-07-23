@@ -14,18 +14,24 @@ const rounds  = 12;
 ***********************/
 
 router.get('/',(req,res)=>{
-  //patients
-  //doctors
-  res.send("Doctors Found");
+  res.render('admin/admin-panel');
 });
 
 /********************
   
-  Register Doctor
+  DOCTOR ROUTES
 
 ****************************/
 
-router.post('/doctor/register',(req,res)=>{
+router.get('/admin-doctors',(req,res)=>{
+  res.render('admin/admin-doctors');
+});
+
+router.get('/admin-create-doctor',(req,res)=>{
+  res.render('admin/admin-create-doctor');
+});
+
+router.post('/admin-doctor/register',(req,res)=>{
   bcrypt.hash(req.body.password, rounds, function(err,hash) {
     if(err){
       console.log(err);
@@ -41,6 +47,23 @@ router.post('/doctor/register',(req,res)=>{
     }
   });
 
+});
+
+router.get('/admin-doctor-details/:id',(req,res)=>{
+  res.render('admin/admin-doctor-details');
+});
+
+/********************
+  
+  PATIENT ROUTES
+
+****************************/
+router.get('/admin-patients',(req,res)=>{
+  res.render('admin/admin-patients');
+});
+
+router.get('/admin-patient-details/:id',(req,res)=>{
+  res.render('admin/admin-patient-details');
 });
 
 module.exports = router;
