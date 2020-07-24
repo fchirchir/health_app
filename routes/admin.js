@@ -13,7 +13,6 @@ const { body,check, validationResult, matchedData,sanitizeBody } = require('expr
 /******************
   
   ADMIN DASHBOARD
-
 ***********************/
 
 router.get('/',(req,res)=>{
@@ -23,7 +22,6 @@ router.get('/',(req,res)=>{
 /********************
   
   DOCTOR ROUTES
-
 ****************************/
 
 router.get('/admin-doctors',(req,res)=>{
@@ -116,7 +114,6 @@ router.get('/admin-doctor-details/:id', async (req,res)=>{
 /********************
   
   PATIENT ROUTES
-
 ****************************/
 router.get('/admin-patients',(req,res)=>{
 

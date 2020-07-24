@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Doctor = require('../models/doctors');
 const Patient = require('../models/patients');
-
+const Consultation = require('../models/consultations');
  
 //doctor routes
   router.get('/',(req,res)=>{ 
@@ -11,19 +11,26 @@ const Patient = require('../models/patients');
  });
 
   
-  router.post('/doctor-view-consultation',(req,res)=>{
-      res.render('doctor/doctor-view-consultation');
+  router.get('/doctor-view-consultation',(req,res)=>{
+        //search consultations
+  Consultation.find({}, (err, consultations)=>{
+    if(err){
+       console.log(err);
+    }else{
+       res.render('doctor/doctor-view-consultation', {consultations:consultations});
+    }
+  });
   });
 
   router.get('/doctor-consultation',(req,res)=>{
-    //find patients
-  Patient.find({}, (error, patients)=>{
-    if(error){
-       console.log(error);
+    //search patients
+  Patient.find({}, (err, patients)=>{
+    if(err){
+       console.log(err);
     }else{
        res.render('doctor/doctor-consultations', {patients:patients});
     }
-  }).sort({'createdAt': -1});
+  });
   });
 
 
