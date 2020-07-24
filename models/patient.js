@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 // create a schema for our database
 var PatientSchema = new Schema({
     name: String,
+    gender: String
     dateOfBirth: Date,
     email: String,
     password: String,
