@@ -32,10 +32,11 @@
             <div class="container">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Dr. <%= patient.names%></h4>
+                        <h4 class="card-title"><%= patient.names%></h4>
                         <h6 class="text-muted card-subtitle mb-2"><%= patient.dob%></h6>
                         <h6 class="text-muted card-subtitle mb-2"><%= patient.gender%></h6>
-                        <a class="btn btn-info btn-sm" href="/admin/admin-patient-details/<%=patient._id%>">View</a>
+                        <h6 class="text-muted card-subtitle mb-2"><%= patient.location%></h6>
+                         <h6 class="text-muted card-subtitle mb-2">Active since - <%=patient.createdAt.getDate() + "-" + months[patient.createdAt.getMonth()] + "-"+patient.createdAt.getFullYear() %></h6>
                     </div>
                 </div>
             </div>

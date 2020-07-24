@@ -124,14 +124,11 @@ router.get('/admin-patients',(req,res)=>{
      if(error){
         console.log(error);
      }else{
-        res.render('admin/admin-patients', { patients: patients});
+        const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        res.render('admin/admin-patients', { patients: patients, months: months});
      }
    }).sort({'createdAt': -1});
 
-});
-
-router.get('/admin-patient-details/:id',(req,res)=>{
-  res.render('admin/admin-patient-details');
 });
 
 module.exports = router;
