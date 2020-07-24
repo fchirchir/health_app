@@ -22,21 +22,21 @@ router.get('/patient-dash', (req,res)=>{
 
 router.post('/patient-post-register',(req,res)=>{
   
-    // bcrypt.hash(req.body.password, rounds, function(err,hash) {
-    //   if(err){
-    //     console.log(err);
-    //   }else{
+    bcrypt.hash(req.body.password, rounds, function(err,hash) {
+      if(err){
+        console.log(err);
+      }else{
         let patient = new Patient({
           names: req.body.names,
-          gender: req.body.speciality,
-          dob: req.body.license_number,
+          gender: req.body.gender,
+          dob: req.body.dob,
           email: req.body.email,
           location: req.body.location,
           password: req.body.password
         }).save();
-        res.redirect('/patient/patient-dash');
-    //   }
-    // });
+        res.redirect('/patient/patient-login');
+      }
+    });
   
   });
 
