@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const patientSchema = new mongoose.Schema({
+// create a schema for our database
+const patientSchema = new Schema({
 	names: String,
-	dob: Date,
 	gender: String,
+	dob: Date,
 	email: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
 	password: String,
 	location: String,
 },{timestamps: true});
 
-module.exports = mongoose.model('Patient',patientSchema);
+// convert the schema into a Model
+let Patient = mongoose.model('Patient', patientSchema);
+
+module.exports = Patient 

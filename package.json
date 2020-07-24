@@ -1,8 +1,8 @@
 {
   "name": "health_app",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,5 +26,6 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.6.0",
     "mongoose": "^5.9.25"
-  }
+  },
+  "description": ""
 }

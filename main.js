@@ -22,6 +22,7 @@ const options = {
 // Connecting to the Database
 let mongodb_url = 'mongodb://localhost/';
 let dbName = 'healthApp';
+
 // Define a url to connect to the database
 const MONGODB_URI = process.env.MONGODB_URI || mongodb_url + dbName;
 mongoose.connect(MONGODB_URI, options);
@@ -57,15 +58,8 @@ app.use(middlewares);
 app.use('/admin', adminRouter);
 // Doctor Routing
 app.use('/doctor', doctorRouter);
-
-app.use((req, res, next) => {
-  res.status(404).send("Sorry can't find that!");
-});
-
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
+// Patient Routing
+app.use('/patient', patientRouter);
 //Server PORT
 const PORT = process.env.PORT || 5000;
 //Start Server
