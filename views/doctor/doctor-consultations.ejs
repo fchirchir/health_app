@@ -25,16 +25,18 @@
         <div class="col">
             <h1>Patients:</h1>
             <div class="row">
+                <% patients.forEach(function(patient){ %>
                 <div class="col">
-                    <% patients.forEach(function(patient){ %>
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title"><%= patient.name %></h4>
-                            <h6 class="text-muted card-subtitle mb-2"><%= patient.age %></h6>
-                            <p class="card-text"><%= patient.symptoms %></p><a class="card-link" href="/doctor/doctor-view-consultation">Details</a></div>
+                            <h4 class="card-title"><%= patient.names %></h4>
+                            <h6 class="text-muted card-subtitle mb-2"><%= patient.location %></h6>
+                            <p class="card-text"><%= patient.gender %></p>
+                            <!--<a class="card-link" href="/doctor/doctor-view-consultation">Details</a> -->
+                        </div>
                     </div>
-                    <% }); %>
                 </div>
+                <% }); %>
                <!--  <div class="col">
                     <div class="card">
                         <div class="card-body">

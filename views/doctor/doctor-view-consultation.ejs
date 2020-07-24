@@ -29,10 +29,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="media"><img class="mr-3" src="/img/avatar-dhg.png">
+            <div class="media"><img class="mr-3" src="/img/patient.png">
                 <div class="media-body">
-                    <h5>Patient Number:<%= consultations.patient_number %></h5>
-                    <p>Detail description of the issue<br><%= consultations.visitation_notes %></p>
+                    <h5>Patient Number:<%= consultation.patient_number %></h5>
+                    <p>Detail description of the issue<br><%= consultation.visitation_notes %></p>
                 </div>
                 <div class="card"></div>
             </div>
@@ -41,7 +41,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Attachments:<%= consultations.attachments_path %> </h4>
+                <h4 class="card-title">Attachments:<%= consultation.attachments_path %> </h4>
                 <!--<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
                 <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><a class="card-link" href="#">View</a> -->
             </div>
