@@ -23,32 +23,24 @@
                 <div class="col">
                  <h1>Patients</h1>
                 </div>
-                <div class="col"><a id="create-doctor-link" href="/admin-create-doctor.html">.</a></div>
             </div>
         </div>
     </div>
-    <div class="col">
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Patient 1</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Nairobi</h6><a class="card-link" href="/admin/admin-patient-details/1234">View</a><a class="card-link" href="#">Delete</a></div>
+    <div class="row">
+    <% patients.forEach(function(patient){ %>
+        <div class="col-md-4 col-lg-4 col-sm-12">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Dr. <%= patient.names%></h4>
+                        <h6 class="text-muted card-subtitle mb-2"><%= patient.dob%></h6>
+                        <h6 class="text-muted card-subtitle mb-2"><%= patient.gender%></h6>
+                        <a class="btn btn-info btn-sm" href="/admin/admin-patient-details/<%=patient._id%>">View</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Patient 2</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Mombasa</h6><a class="card-link" href="/admin/admin-patient-details/1234">View</a><a class="card-link" href="#">Delete</a></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Patient 3</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Nakuru</h6><a class="card-link" href="/admin/admin-patient-details/1234">View</a><a class="card-link" href="#">Delete</a></div>
-            </div>
-        </div>
+        <% }); %> 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

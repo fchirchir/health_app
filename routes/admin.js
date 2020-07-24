@@ -4,6 +4,7 @@ const router  = express.Router();
 const User    = require('../models/users');
 const Doctor  = require('../models/doctors');
 const Patient = require('../models/patients');
+const Consultation = require('../models/consultations');
 
 const rounds  = 12;
 
@@ -93,34 +94,24 @@ router.post('/admin-doctor/register',[
 
 });
 
-router.get('/admin-doctor-details/:id',(req,res)=>{
+router.get('/admin-doctor-details/:id', async (req,res)=>{
+
+  const dashboardData = {
+    patientsCount: await Consultation.distinct("patient_number",{doctor_number: req.params.id}).countDocuments(),
+    prescriptionsCount: await Consultation.countDocuments({doctor_number: req.params.id}),
+  };
 
   Doctor.findById(req.params.id, (error, doctor)=>{
      if(error){
         console.log(error)
      }else{
-       let patients=20;
-       let prescriptions=10;
        const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
        res.render('admin/admin-doctor-details', {doctor:doctor, months: months,
-        patients: patients, prescriptions: prescriptions});
+        patients: dashboardData.patientsCount, prescriptions: dashboardData.prescriptionsCount});
      }
    });
 
 });
-
-router.delete('/admin-doctor/:id', (req,res)=>{
-  
-   Doctor.deleteOne({_id:req.params.id},(error)=>{
-     if(error){
-      console.log(err);
-      res.send('failed');
-     }else{
-      res.send('success');
-    }
-   });
-
-})
 
 /********************
   
@@ -128,7 +119,15 @@ router.delete('/admin-doctor/:id', (req,res)=>{
 
 ****************************/
 router.get('/admin-patients',(req,res)=>{
-  res.render('admin/admin-patients');
+
+  Patient.find({},(error,patients)=>{
+     if(error){
+        console.log(error);
+     }else{
+        res.render('admin/admin-patients', { patients: patients});
+     }
+   }).sort({'createdAt': -1});
+
 });
 
 router.get('/admin-patient-details/:id',(req,res)=>{

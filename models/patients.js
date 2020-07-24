@@ -6,6 +6,7 @@ const patientSchema = new mongoose.Schema({
 	gender: String,
 	email: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
 	password: String,
+	location: String,
 },{timestamps: true});
 
 module.exports = mongoose.model('Patient',patientSchema);
