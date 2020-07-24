@@ -1,7 +1,10 @@
 //Imports
+const path = require("path");
 const express = require('express');
 const mongoose  = require('mongoose');
 const bodyParser= require('body-parser');
+const session = require("express-session");
+const flash = require("express-flash");
 //Routes
 let adminRouter = require('./routes/admin');
 let patientRouter = require('./routes/patient');
@@ -36,9 +39,21 @@ db.on('error',(error)=>{
 //Set View Engine
 app.set('view engine','ejs');
 //Set Static folder
-app.use(express.static('public'));
-// body parser middleware
-app.use(express.json());
+const middlewares = [
+  express.static(path.join(__dirname, "public")),
+  express.json(),
+  bodyParser.urlencoded({ extended: true }),
+  session({
+    secret: "super-secret-key",
+    key: "super-secret-cookie",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 60000 }
+  }),
+  flash()
+];
+
+app.use(middlewares);
 // App Routing
 app.use('/admin', adminRouter);
 // Doctor Routing
@@ -51,4 +66,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, function(){
 	console.log(`Server is listening on port ${PORT}`);
 });
-
