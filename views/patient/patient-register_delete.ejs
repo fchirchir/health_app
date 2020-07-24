@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand-md">
-        <div class="container-fluid"><a class="navbar-brand" href="/admin">Hello, Felix</a>
+        <div class="container-fluid"><a class="navbar-brand" href="/patient">Welcome to teleHealth</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation"></li>
                 <li class="nav-item" role="presentation"></li>
@@ -19,21 +19,35 @@
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="/patient">Home</a></li>
                 <li class="nav-item" role="presentation"></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="/auth/logout">Logout</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="/login.html">Logout</a></li>
             </ul>
         </div>
     </nav>
     <div class="row">
         <div class="col">
             <div class="container">
-                <div class="card-group">
-                    <div class="card" style="margin-right: 2.5%;"><img class="card-img-top w-100 d-block">
-                        <div class="card-body">
-                            <h4 class="card-title">Dashboard</h4>
-                            <p class="card-text">This is the customer's dashboard showing submission history and allowing for a new submission.</p>
-                        </div>
-                    </div>
-                </div>
+                <h1>Create Patient</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                    <label>Names</label>
+                    <input class="form-control" type="text" id="patient-name" name="names">
+                    <label>Date Of Birth:</label>
+                    <input class="form-control" type="text" id="patient-license-number" name="dob">
+                    <label>Hospital</label>
+                    <input class="form-control" type="text" id="patient-hospital" name="hospital">
+                    <label>Gender (male/female)</label>
+                    <input class="form-control" type="text" id="patient-speciality" name="gender">
+                    <label>Email Address</label>
+                    <input class="form-control" type="email" id="patient-email" name="email">
+                    <label>Password</label>
+                    <input class="form-control" type="password" id="patient-password" name="password">
+                    <hr>
+                    <button class="btn btn-primary" type="submit">Create Patient</button>
+                </form>
             </div>
         </div>
     </div>

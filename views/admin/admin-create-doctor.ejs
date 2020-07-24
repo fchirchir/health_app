@@ -25,8 +25,22 @@
     </nav>
     <div class="row">
         <div class="col">
+             <div class="container">
+                <a class="card-link" href="/admin/admin-doctors">Back</a>
+            </div>
             <div class="container">
-                <h1>Create Doctor</h1>
+              <% if (Object.keys(errors).length === 0) { %>
+                    <h1>Create Doctor</h1>
+              <% } else { %>
+              <div class="errors-container">
+                    <h6 class="errors-heading">Please correct the following:</h6>
+                    <ul class="errors-list">
+                      <% Object.values(errors).forEach(error => { %>
+                        <li><%= error.msg %></li>
+                      <% }) %>
+                    </ul>
+                </div>
+              <% } %>
             </div>
         </div>
     </div>
@@ -36,16 +50,34 @@
                 <form action="/admin/admin-doctor/register" method="POST">
                     <label>Names</label>
                     <input class="form-control" type="text" id="doctor-names" name="names">
+                    <% if (errors.names) { %>
+                      <span class="error text-danger"><%= errors.names.msg %></span><br/>
+                    <% } %>
                     <label>License Number</label>
                     <input class="form-control" type="text" id="doctor-license-number" name="license_number">
+                    <% if (errors.license_number) { %>
+                      <span class="error text-danger"><%= errors.license_number.msg %></span><br/>
+                    <% } %>
                     <label>Hospital</label>
                     <input class="form-control" type="text" id="doctor-hospital" name="hospital">
+                    <% if (errors.hospital) { %>
+                      <span class="error text-danger"><%= errors.hospital.msg %></span><br/>
+                    <% } %>
                     <label>Speciality</label>
                     <input class="form-control" type="text" id="doctor-speciality" name="speciality">
+                    <% if (errors.speciality) { %>
+                      <span class="error text-danger"><%= errors.speciality.msg %></span><br/>
+                    <% } %>
                     <label>Email Address</label>
                     <input class="form-control" type="email" id="doctor-email" name="email">
+                    <% if (errors.email) { %>
+                      <span class="error text-danger"><%= errors.email.msg %></span><br/>
+                    <% } %>
                     <label>Password</label>
                     <input class="form-control" type="password" id="doctor-password" name="password">
+                    <% if (errors.password) { %>
+                      <span class="error text-danger"><%= errors.password.msg %></span><br/>
+                    <% } %>
                     <hr>
                     <button class="btn btn-primary" type="submit">Save Details</button>
                 </form>

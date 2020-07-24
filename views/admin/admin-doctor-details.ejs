@@ -28,39 +28,41 @@
     <div class="row">
         <div class="col">
             <div class="container">
+                <a class="card-link" href="/admin/admin-doctors">Back</a>
+            </div>
+            <div class="container">
                 <div class="card">
-                    <div class="card-body"><img>
-                        <h4 class="card-title">Dr Govish</h4>
-                        <h6 class="text-muted card-subtitle mb-2">Hospital</h6>
-                        <h6 class="text-muted card-subtitle mb-2">License Number</h6>
-                        <h6 class="text-muted card-subtitle mb-2">Active since - 12th Dec 1960</h6>
-                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <div class="card-body">
+                        <h4 class="card-title">Dr. <%= doctor.names %></h4>
+                        <h6 class="text-muted card-subtitle mb-2">License : <%= doctor.license_number%></h6>
+                        <h6 class="text-muted card-subtitle mb-2">Speciality: <%= doctor.speciality%></h6>
+                        <h6 class="text-muted card-subtitle mb-2">Hospital: <%= doctor.hospital %></h6>
+                        <h6 class="text-muted card-subtitle mb-2">Active since - <%=doctor.createdAt.getDate() + "-" + months[doctor.createdAt.getMonth()] + "-"+doctor.createdAt.getFullYear() %></h6>
                         <hr>
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>STATS</th>
-                                    </tr>
-                                </thead>
+                            <h4 class="card-title">Statistics</h4>
+                            <table class="table table-condensed table-striped">
                                 <tbody>
                                     <tr>
                                         <td>Patients</td>
-                                        <td>100</td>
+                                        <td><%=patients%></td>
                                     </tr>
                                     <tr>
                                         <td>Prescriptions</td>
-                                        <td>500</td>
+                                        <td><%=prescriptions%></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <!-- <hr>
+                        <a class="btn btn-danger btn-sm" href="#" id="delete" data-id="<%=doctor._id%>">Delete</a> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
