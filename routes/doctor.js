@@ -11,19 +11,19 @@ const Patient = require('../models/patients');
  });
 
   
-  router.get('/doctor-view-consultation',(req,res)=>{
-    res.render('doctor/doctor-view-consultation');
+  router.post('/doctor-view-consultation',(req,res)=>{
+      res.render('doctor/doctor-view-consultation');
   });
 
   router.get('/doctor-consultation',(req,res)=>{
-    //search patients
-  Patient.find({}, (err, patients)=>{
-    if(err){
-       console.log(err);
+    //find patients
+  Patient.find({}, (error, patients)=>{
+    if(error){
+       console.log(error);
     }else{
        res.render('doctor/doctor-consultations', {patients:patients});
     }
-  });
+  }).sort({'createdAt': -1});
   });
 
 
