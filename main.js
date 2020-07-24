@@ -44,7 +44,7 @@ app.use('/admin', adminRouter);
 // Doctor Routing
 app.use('/doctor', doctorRouter);
 // Patient Routing
-app.use('/patient', doctorRouter);
+app.use('/patient', patientRouter);
 //Server PORT
 const PORT = process.env.PORT || 5000;
 //Start Server
