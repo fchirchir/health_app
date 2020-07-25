@@ -32,42 +32,34 @@
             <div class="media"><img class="mr-3" src="/img/patient.png">
                 <div class="media-body">
                     <h5>Patient Number:<%= consultation.patient_number %></h5>
-                    <p>Detail description of the issue<br><%= consultation.visitation_notes %></p>
+                    <h5>Detail description of the issue</h5>
+                    <p><%= consultation.visitation_notes %></p>
+                    <h5>Attachments:<%= consultation.attachments_path %> </h5>
                 </div>
                 <div class="card"></div>
             </div>
         </div>
     </div>
-    <div class="col">
+    <!--<div class="col">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Attachments:<%= consultation.attachments_path %> </h4>
-                <!--<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><a class="card-link" href="#">View</a> -->
+                <h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
+                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><a class="card-link" href="#">View</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <% }); %>
     <div class="row">
         <div class="col">
             <div role="tablist" id="accordion-1">
                 <div class="card">
                     <div class="card-header" role="tab">
-                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1">PROGNOSIS</a></h5>
-                    </div>
-                    <div class="collapse show item-1" role="tabpanel" data-parent="#accordion-1">
-                        <div class="card-body">
-                            <button class="btn btn-primary" type="button">Add Prognosis</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" role="tab">
                         <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-2" href="#accordion-1 .item-2">Diagnosis</a></h5>
                     </div>
                     <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1">
                         <div class="card-body">
-                            <p>Nullam id dolor id nibh ultricies</p>
+                            <textarea name="" id="" cols="100" rows="3"></textarea>
                        </div>
                     </div>
                 </div>
@@ -77,9 +69,20 @@
                     </div>
                     <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1">
                         <div class="card-body">
-                            <p class="card-text">Nullam id dolor id nibh ultricies</p>
+                            <textarea name="" id="" cols="100" rows="3"></textarea>
                         </div>
                     </div>
+                </div>
+                <div class="card">
+                    <!--<div class="card-header" role="tab">
+                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1">PROGNOSIS</a></h5>
+                    </div>
+                    <div class="collapse show item-1" role="tabpanel" data-parent="#accordion-1">
+                        <div class="card-body">
+                            <button class="btn btn-primary" type="button">Add Prognosis</button>
+                        </div>
+                    </div> -->
+                    <button class="btn btn-primary" type="button">SUBMIT</button>
                 </div>
             </div>
         </div>
