@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const consultationSchema = new mongoose.Schema({
 	patient_number: {type: String, required: true},
 	doctor_number: {type: String, required: true},
-	attachments_path: String,
+	patient_attachments: String,
 	visitation_notes: String,
+	assigned_doctor: String,
 	diagnosis: String,
-	prescription: String
+	prescription: String,
+	doctor_attachments: String
 },{timestamps: true});
 
 module.exports = mongoose.model('Consultation',consultationSchema);
